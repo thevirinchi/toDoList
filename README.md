@@ -9,5 +9,5 @@ JS based toDoList web app
   4. http-server: ^0.11.1
 
 ## To Run
-Compile the JavaScripts using Babel
+Compile the JavaScripts using Babel...
 ```npm run watch```
