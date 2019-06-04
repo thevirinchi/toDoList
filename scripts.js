@@ -35,7 +35,7 @@ class ToDoClass {
                         ${task.task}
                     </div>
                     <div class="col-md-1 col-xs-1 col-lg-1 col-sm-1 delete-icon-area">
-                        <a class="" href="/toDoList" onclick="toDo.deleteTask(event, ${index})"><i id="deleteTask" data-id="${index}" class="material-icons delete-icon">delete</i></a>
+                        <a class="" href="/toDoList" onclick="toDo.deleteTask(event, ${index})"><i id="deleteTask" data-id="${index}" class="material-icons">delete</i></a>
                     </div>
                 </div>
             </li>
