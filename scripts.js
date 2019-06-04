@@ -1,13 +1,26 @@
 class ToDoClass {
     constructor() {
-        this.tasks = [
-            { task: 'Go to dentist', isComplete: false },
-            { task: 'Do gardeneing', isComplete: true },
-            { task: 'Renew library account', isComplete: false }
-        ];
+        //localStorage.clear(); uncommnent this line to clear the localStorage
+        this.tasks = JSON.parse(localStorage.getItem('TASKS'));
+        if (!this.tasks) {
+            this.tasks = [
+                { task: 'First task', isComplete: false },
+                { task: 'Second Task', isComplete: true }
+            ];
+        }
         this.loadTasks();
+        this.addEventListeners();
+    }
+    addEventListeners() {
+        document.getElementById('addTask').addEventListener('keypress', event => {
+            if (event.keyCode === 13) {
+                this.addTask(event.target.value);
+                event.target.value = '';
+            }
+        });
     }
     loadTasks() {
+        localStorage.setItem('TASKS', JSON.stringify(this.tasks));
         let tasksHtml = this.tasks.reduce((html, task, index) => html += this.generateTasksHtml(task, index), '');
         document.getElementById('taskList').innerHTML = tasksHtml;
     }
